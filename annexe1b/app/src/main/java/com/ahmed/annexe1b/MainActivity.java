@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +64,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return nbLigne;
+    }
+
+    private int compteurMots(){
+        int compteur = 0;
+        Scanner sc = null;
+        try {
+            FileInputStream fis = openFileInput("test.txt");
+
+            sc = new Scanner(fis);
+            while (sc.hasNext()) {
+                System.out.println(sc.next());
+                compteur++;
+            }
+        }
+        catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+
+        }
+
     }
 
     private int compteurCharacter(){
