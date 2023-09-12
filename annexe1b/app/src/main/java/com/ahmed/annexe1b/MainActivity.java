@@ -96,10 +96,10 @@ public class MainActivity extends AppCompatActivity {
             FileInputStream fis = openFileInput("test.txt");
             InputStreamReader isr = new InputStreamReader(fis);
             br = new BufferedReader(isr);
-            String line = br.readLine();
-            while(line != null){
-                nbCharacter += line.length();
-                line = br.readLine();
+            char character = (char)br.read();
+            while(character != null){
+                nbCharacter += 1;
+                character = (char)br.read();
             }
 
         }catch(FileNotFoundException e){

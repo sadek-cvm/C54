@@ -36,10 +36,10 @@ public class Afficher extends AppCompatActivity {
         // 3 flux de donnes en lecture
 
         try{
-            FileInputStream fis = openFileInput("memo.txt");
-            InputStreamReader isr = new InputStreamReader(fis);
-            br = new BufferedReader(isr);
-            String line = br.readLine();
+            FileInputStream fis = openFileInput("memo.txt"); // stream du fichier
+            InputStreamReader isr = new InputStreamReader(fis); // stream du fichier en charactere
+            br = new BufferedReader(isr); // buffer du stream en charactere
+            String line = br.readLine(); // lire la premierr line
             while(line != null){
                 temp.add(line);
                 line = br.readLine();

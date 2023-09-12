@@ -10,11 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 public class IdentificationActivity extends AppCompatActivity {
 
     Button boutonConfirmer;
     EditText champPrenom, champNom;
+    Utilisateur utilisateur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class IdentificationActivity extends AppCompatActivity {
         super.onStop();
         try {
             FileOutputStream fis = openFileOutput("utilisateur.ser", Context.MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fis);
+            oos.writeObject(utilisateur);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -46,7 +50,7 @@ public class IdentificationActivity extends AppCompatActivity {
 //            if(view == boutonConfirmer){
 //                try {
                     Intent retour = new Intent();
-                    Utilisateur utilisateur = new Utilisateur(champPrenom.getText().toString(), champNom.getText().toString());
+                    utilisateur = new Utilisateur(champPrenom.getText().toString(), champNom.getText().toString());
                     retour.putExtra("util", utilisateur);
                     setResult(RESULT_OK, retour);   // renvoie le boomerang a l'activite de depart, dans la methode onActivityResult
                     finish();
