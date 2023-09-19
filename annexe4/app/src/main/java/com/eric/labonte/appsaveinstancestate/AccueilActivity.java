@@ -1,0 +1,80 @@
+package com.eric.labonte.appsaveinstancestate;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class AccueilActivity extends AppCompatActivity {
+
+    Button boutonStartActivity;
+    TextView texteSalutations ;
+    ActivityResultLauncher<Intent> lanceur;
+    Utilisateur util;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        boutonStartActivity = findViewById(R.id.boutonStartActivity);
+        texteSalutations = findViewById(R.id.texteSalutations);
+
+        Ecouteur ec = new Ecouteur();
+        boutonStartActivity.setOnClickListener(ec);
+
+        // creer le lanceur
+        lanceur = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new RetourBoomerang());
+        try {
+            util = (Utilisateur) savedInstanceState.getSerializable("util");
+            if (util != null) {
+                texteSalutations.setText("Bonjour " + util.getPrenom() + " " + util.getNom() + "!");
+            }
+        } catch(NullPointerException npe) {
+            npe.printStackTrace();
+            texteSalutations.setText("Bonjour!");
+        }
+
+        // deserialization ici
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("util", util); // juste avant le onStop, on stock l'objet util dans le bundle et on le recupere dans le onCreate!
+    }
+
+    private class Ecouteur implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            Intent i;
+            if(view == boutonStartActivity){
+//                i = new Intent(AccueilActivity.this, IdentificationActivity.class);   // on ne passe pas par intent, car ce n'est pas recommander pour rapporter de l'information vers notre actv. accueil
+//                startActivity(i);
+                lanceur.launch(new Intent(AccueilActivity.this, IdentificationActivity.class));
+            }
+        }
+    }
+
+    private class RetourBoomerang implements ActivityResultCallback<ActivityResult> {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == RESULT_OK) {
+                 util = (Utilisateur) result.getData().getSerializableExtra("util");
+                 texteSalutations.setText("Bonjour " + util.getPrenom() + " " + util.getNom() + "!");
+            }
+        }
+    }
+
+
+}
