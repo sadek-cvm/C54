@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/TopContainer"
+        android:layout_width="375dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/Playlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rap Egyptien"
+            android:textSize="24sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:srcCompat="@android:drawable/ic_dialog_dialer" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/Cover"
+        android:layout_width="375dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.5"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/Chanson"
+        android:layout_width="375dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.2"
+        android:gravity="bottom"
+        android:text="God's plan"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/Artist"
+        android:layout_width="375dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.2"
+        android:text="Drake"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/Progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="375dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.25" />
+
+    <LinearLayout
+        android:id="@+id/BottomContainer"
+        android:layout_width="375dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/Previous"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_media_previous" />
+
+        <ImageButton
+            android:id="@+id/PlayPause"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_media_pause" />
+
+        <ImageButton
+            android:id="@+id/Next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_media_next" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+chrono.setBase(SystemClock.elapsedRealtime());
+chrono.start();
+chrono.stop();
+
+tempsEcoule : systemClock.elapsedRealtime() - chrono.getBase();
+
+systemClock.elapsedRealtime() - tempsEcoule;
