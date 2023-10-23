@@ -1,0 +1,14 @@
+question 2: viewPage.setCurrentItem(viewPagergetCurrentItem()+1);
+
+On back pressed
+
+
+if the cuuret item is not equal to 1
+
+    viewPager.setCurrentItem(viewPager.getCurrentItem()-1)
+
+Membre.Builder m = ((ConteneurFregementsActivity)getActivity()).getM();
+m.setNom(champNom.getText().toString())
+  .setPrenom(champPrenom.getText().toString());
+
+groupe.
