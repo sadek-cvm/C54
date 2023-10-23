@@ -1,0 +1,322 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2757
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Oblique;\f2\fmodern\fcharset0 Courier-BoldOblique;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red207\green203\blue196;\red207\green202\blue196;
+\red255\green255\blue255;\red208\green203\blue196;\red207\green203\blue196;\red133\green96\blue154;\red32\green32\blue32;
+\red153\green168\blue186;\red191\green100\blue38;\red81\green136\blue67;\red152\green182\blue28;\red109\green109\blue109;
+\red86\green132\blue173;\red254\green187\blue91;\red173\green169\blue32;\red118\green82\blue45;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c84786\c83214\c81148;\cssrgb\c84706\c83137\c81176;
+\cssrgb\c100000\c100000\c99985\c0;\cssrgb\c85023\c83442\c81057;\cssrgb\c84865\c83291\c81118;\csgenericrgb\c52157\c37647\c60392;\csgenericrgb\c12549\c12549\c12549;
+\csgenericrgb\c60000\c65882\c72941;\csgenericrgb\c74902\c39216\c14902;\csgenericrgb\c31765\c53333\c26275;\csgenericrgb\c59608\c71373\c10980;\csgenericrgb\c42745\c42745\c42745;
+\csgenericrgb\c33725\c51765\c67843;\csgenericrgb\c99608\c73333\c35686;\csgenericrgb\c67843\c66275\c12549;\csgenericrgb\c46275\c32157\c17647;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 public class View \{\
+    // Other methods and fields...\
+\
+    public void setOnClickListener(OnClickListener l) \{\
+        // Implementation here...\
+    \}\
+\
+    // Other methods and fields...\
+\}\cf4 \strokec4 \
+\cf3 \cb2 \strokec3 \
+
+\fs32 \cf2 \cb5 \strokec6 public interface OnClickListener \{\cf7 \cb2 \strokec7 \
+\cf2 \cb5 \strokec6     void onClick(View v);\
+\}\cf7 \cb2 \strokec7 \
+\
+\cf2 \cb5 \strokec6 Private class Listener implements View.OnClickListener\{\
+	@Override\
+	public void onClick(View v))\{\
+\
+	\}\
+\}\
+Listener l = new Listener()\
+button.setOnClickListener(l)\
+\
+button.setOnClickListener(new View.OnClickListener() \{\
+    @Override\
+    public void onClick(View v) \{\
+        // Code to execute when the button is clicked\
+    \}\
+\});\
+\
+button.setOnClickListener(v -> \{\
+    // Code to execute when the button is clicked\
+\});\
+\cb5 \strokec7 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs26 \cf8 \cb9 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 liste \cf10 = findViewById(R.id.
+\f1\i \cf8 listView1
+\f0\i0 \cf10 )\cf11 ;\
+\cf10 ArrayAdapter adapter = \cf11 new \cf10 ArrayAdapter(\cf11 this, \cf10 android.R.layout.
+\f1\i \cf8 simple_list_item_1
+\f0\i0 \cf11 , \cf10 recupererMemos())\cf11 ;\
+\cf8 liste\cf10 .setAdapter(adapter)\cf11 ;\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs26 \cf11 \cb9 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 package \cf10 com.ahmed.annexe6\cf11 ;\
+\
+import \cf10 android.content.Context\cf11 ;\
+import \cf10 android.content.res.TypedArray\cf11 ;\
+import \cf10 android.graphics.Canvas\cf11 ;\
+import \cf10 android.graphics.Color\cf11 ;\
+import \cf10 android.graphics.Paint\cf11 ;\
+import \cf10 android.graphics.drawable.Drawable\cf11 ;\
+import \cf10 android.text.TextPaint\cf11 ;\
+import \cf10 android.util.AttributeSet\cf11 ;\
+import \cf10 android.view.View\cf11 ;\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i \cf12 /**\
+ * \cf13 TODO: document your custom view class.\
+ \cf12 */\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\i0 \cf11 public class \cf10 custom_list_item \cf11 extends \cf10 View \{\
+    \cf11 private \cf10 String \cf8 mExampleString\cf11 ; \cf14 // 
+\f1\i \cf13 TODO: use a default from R.string...\
+    
+\f0\i0 \cf11 private int \cf8 mExampleColor \cf10 = Color.
+\f1\i \cf8 RED
+\f0\i0 \cf11 ; \cf14 // 
+\f1\i \cf13 TODO: use a default from R.color...\
+    
+\f0\i0 \cf11 private float \cf8 mExampleDimension \cf10 = \cf15 0\cf11 ; \cf14 // 
+\f1\i \cf13 TODO: use a default from R.dimen...\
+    
+\f0\i0 \cf11 private \cf10 Drawable \cf8 mExampleDrawable\cf11 ;\
+\
+    private \cf10 TextPaint \cf8 mTextPaint\cf11 ;\
+    private float \cf8 mTextWidth\cf11 ;\
+    private float \cf8 mTextHeight\cf11 ;\
+\
+    public \cf16 custom_list_item\cf10 (Context context) \{\
+        \cf11 super\cf10 (context)\cf11 ;\
+        \cf10 init(\cf11 null, \cf15 0\cf10 )\cf11 ;\
+    \cf10 \}\
+\
+    \cf11 public \cf16 custom_list_item\cf10 (Context context\cf11 , \cf10 AttributeSet attrs) \{\
+        \cf11 super\cf10 (context\cf11 , \cf10 attrs)\cf11 ;\
+        \cf10 init(attrs\cf11 , \cf15 0\cf10 )\cf11 ;\
+    \cf10 \}\
+\
+    \cf11 public \cf16 custom_list_item\cf10 (Context context\cf11 , \cf10 AttributeSet attrs\cf11 , int \cf10 defStyle) \{\
+        \cf11 super\cf10 (context\cf11 , \cf10 attrs\cf11 , \cf10 defStyle)\cf11 ;\
+        \cf10 init(attrs\cf11 , \cf10 defStyle)\cf11 ;\
+    \cf10 \}\
+\
+    \cf11 private void \cf16 init\cf10 (AttributeSet attrs\cf11 , int \cf10 defStyle) \{\
+        \cf14 // Load attributes\
+        \cf11 final \cf10 TypedArray a = getContext().obtainStyledAttributes(\
+                attrs\cf11 , \cf10 R.styleable.
+\f1\i \cf8 custom_list_item
+\f0\i0 \cf11 , \cf10 defStyle\cf11 , \cf15 0\cf10 )\cf11 ;\
+\
+        \cf8 mExampleString \cf10 = a.getString(\
+                R.styleable.
+\f1\i \cf8 custom_list_item_exampleString
+\f0\i0 \cf10 )\cf11 ;\
+        \cf8 mExampleColor \cf10 = a.getColor(\
+                R.styleable.
+\f1\i \cf8 custom_list_item_exampleColor
+\f0\i0 \cf11 ,\
+                \cf8 mExampleColor\cf10 )\cf11 ;\
+        \cf14 // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with\
+        // values that should fall on pixel boundaries.\
+        \cf8 mExampleDimension \cf10 = a.getDimension(\
+                R.styleable.
+\f1\i \cf8 custom_list_item_exampleDimension
+\f0\i0 \cf11 ,\
+                \cf8 mExampleDimension\cf10 )\cf11 ;\
+\
+        if \cf10 (a.hasValue(R.styleable.
+\f1\i \cf8 custom_list_item_exampleDrawable
+\f0\i0 \cf10 )) \{\
+            \cf8 mExampleDrawable \cf10 = a.getDrawable(\
+                    R.styleable.
+\f1\i \cf8 custom_list_item_exampleDrawable
+\f0\i0 \cf10 )\cf11 ;\
+            \cf8 mExampleDrawable\cf10 .setCallback(\cf11 this\cf10 )\cf11 ;\
+        \cf10 \}\
+\
+        a.recycle()\cf11 ;\
+\
+        \cf14 // Set up a default TextPaint object\
+        \cf8 mTextPaint \cf10 = \cf11 new \cf10 TextPaint()\cf11 ;\
+        \cf8 mTextPaint\cf10 .setFlags(Paint.
+\f1\i \cf8 ANTI_ALIAS_FLAG
+\f0\i0 \cf10 )\cf11 ;\
+        \cf8 mTextPaint\cf10 .setTextAlign(Paint.Align.
+\f1\i \cf8 LEFT
+\f0\i0 \cf10 )\cf11 ;\
+\
+        \cf14 // Update TextPaint and text measurements from attributes\
+        \cf10 invalidateTextPaintAndMeasurements()\cf11 ;\
+    \cf10 \}\
+\
+    \cf11 private void \cf16 invalidateTextPaintAndMeasurements\cf10 () \{\
+        \cf8 mTextPaint\cf10 .setTextSize(\cf8 mExampleDimension\cf10 )\cf11 ;\
+        \cf8 mTextPaint\cf10 .setColor(\cf8 mExampleColor\cf10 )\cf11 ;\
+        \cf8 mTextWidth \cf10 = \cf8 mTextPaint\cf10 .measureText(\cf8 mExampleString\cf10 )\cf11 ;\
+\
+        \cf10 Paint.FontMetrics fontMetrics = \cf8 mTextPaint\cf10 .getFontMetrics()\cf11 ;\
+        \cf8 mTextHeight \cf10 = fontMetrics.\cf8 bottom\cf11 ;\
+    \cf10 \}\
+\
+    \cf17 @Override\
+    \cf11 protected void \cf16 onDraw\cf10 (Canvas canvas) \{\
+        \cf11 super\cf10 .onDraw(canvas)\cf11 ;\
+\
+        \cf14 // 
+\f1\i \cf13 TODO: consider storing these as member variables to reduce\
+        
+\f0\i0 \cf14 // allocations per draw cycle.\
+        \cf11 int \cf10 paddingLeft = getPaddingLeft()\cf11 ;\
+        int \cf10 paddingTop = getPaddingTop()\cf11 ;\
+        int \cf10 paddingRight = getPaddingRight()\cf11 ;\
+        int \cf10 paddingBottom = getPaddingBottom()\cf11 ;\
+\
+        int \cf10 contentWidth = getWidth() - paddingLeft - paddingRight\cf11 ;\
+        int \cf10 contentHeight = getHeight() - paddingTop - paddingBottom\cf11 ;\
+\
+        \cf14 // Draw the text.\
+        \cf10 canvas.drawText(\cf8 mExampleString\cf11 ,\
+                \cf10 paddingLeft + (contentWidth - \cf8 mTextWidth\cf10 ) / \cf15 2\cf11 ,\
+                \cf10 paddingTop + (contentHeight + \cf8 mTextHeight\cf10 ) / \cf15 2\cf11 ,\
+                \cf8 mTextPaint\cf10 )\cf11 ;\
+\
+        \cf14 // Draw the example drawable on top of the text.\
+        \cf11 if \cf10 (\cf8 mExampleDrawable \cf10 != \cf11 null\cf10 ) \{\
+            \cf8 mExampleDrawable\cf10 .setBounds(paddingLeft\cf11 , \cf10 paddingTop\cf11 ,\
+                    \cf10 paddingLeft + contentWidth\cf11 , \cf10 paddingTop + contentHeight)\cf11 ;\
+            \cf8 mExampleDrawable\cf10 .draw(canvas)\cf11 ;\
+        \cf10 \}\
+    \}\
+\
+    
+\f1\i \cf12 /**\
+     * Gets the example string attribute value.\
+     *\
+     * 
+\f2\b @return 
+\f1\b0 The example string attribute value.\
+     */\
+    
+\f0\i0 \cf11 public \cf10 String \cf16 getExampleString\cf10 () \{\
+        \cf11 return \cf8 mExampleString\cf11 ;\
+    \cf10 \}\
+\
+    
+\f1\i \cf12 /**\
+     * Sets the view"s example string attribute value. In the example view, this string\
+     * is the text to draw.\
+     *\
+     * 
+\f2\b @param 
+\f1\b0 \cf18 exampleString \cf12 The example string attribute value to use.\
+     */\
+    
+\f0\i0 \cf11 public void \cf16 setExampleString\cf10 (String exampleString) \{\
+        \cf8 mExampleString \cf10 = exampleString\cf11 ;\
+        \cf10 invalidateTextPaintAndMeasurements()\cf11 ;\
+    \cf10 \}\
+\
+    
+\f1\i \cf12 /**\
+     * Gets the example color attribute value.\
+     *\
+     * 
+\f2\b @return 
+\f1\b0 The example color attribute value.\
+     */\
+    
+\f0\i0 \cf11 public int \cf16 getExampleColor\cf10 () \{\
+        \cf11 return \cf8 mExampleColor\cf11 ;\
+    \cf10 \}\
+\
+    
+\f1\i \cf12 /**\
+     * Sets the view"s example color attribute value. In the example view, this color\
+     * is the font color.\
+     *\
+     * 
+\f2\b @param 
+\f1\b0 \cf18 exampleColor \cf12 The example color attribute value to use.\
+     */\
+    
+\f0\i0 \cf11 public void \cf16 setExampleColor\cf10 (\cf11 int \cf10 exampleColor) \{\
+        \cf8 mExampleColor \cf10 = exampleColor\cf11 ;\
+        \cf10 invalidateTextPaintAndMeasurements()\cf11 ;\
+    \cf10 \}\
+\
+    
+\f1\i \cf12 /**\
+     * Gets the example dimension attribute value.\
+     *\
+     * 
+\f2\b @return 
+\f1\b0 The example dimension attribute value.\
+     */\
+    
+\f0\i0 \cf11 public float \cf16 getExampleDimension\cf10 () \{\
+        \cf11 return \cf8 mExampleDimension\cf11 ;\
+    \cf10 \}\
+\
+    
+\f1\i \cf12 /**\
+     * Sets the view"s example dimension attribute value. In the example view, this dimension\
+     * is the font size.\
+     *\
+     * 
+\f2\b @param 
+\f1\b0 \cf18 exampleDimension \cf12 The example dimension attribute value to use.\
+     */\
+    
+\f0\i0 \cf11 public void \cf16 setExampleDimension\cf10 (\cf11 float \cf10 exampleDimension) \{\
+        \cf8 mExampleDimension \cf10 = exampleDimension\cf11 ;\
+        \cf10 invalidateTextPaintAndMeasurements()\cf11 ;\
+    \cf10 \}\
+\
+    
+\f1\i \cf12 /**\
+     * Gets the example drawable attribute value.\
+     *\
+     * 
+\f2\b @return 
+\f1\b0 The example drawable attribute value.\
+     */\
+    
+\f0\i0 \cf11 public \cf10 Drawable \cf16 getExampleDrawable\cf10 () \{\
+        \cf11 return \cf8 mExampleDrawable\cf11 ;\
+    \cf10 \}\
+\
+    
+\f1\i \cf12 /**\
+     * Sets the view"s example drawable attribute value. In the example view, this drawable is\
+     * drawn above the text.\
+     *\
+     * 
+\f2\b @param 
+\f1\b0 \cf18 exampleDrawable \cf12 The example drawable attribute value to use.\
+     */\
+    
+\f0\i0 \cf11 public void \cf16 setExampleDrawable\cf10 (Drawable exampleDrawable) \{\
+        \cf8 mExampleDrawable \cf10 = exampleDrawable\cf11 ;\
+    \cf10 \}\
+\}\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 \
+}
